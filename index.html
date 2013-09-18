@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="lib/bootstrap-3.0.0/assets/ico/favicon.png">
+        <title>Bargainburg</title>
+        <!-- Bootstrap core CSS -->
+        <link href="lib/bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="lib/sticky-footer.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="../../assets/js/html5shiv.js"></script>
+        <script src="../../assets/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <script type='text/x-handlebars'>
+        <!-- Wrap all page content here -->
+        <div id="wrap">
+            <!-- Begin page content -->
+            <div class="container">
+                <div class="navbar navbar-default">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <h1 style="color:rgb(64,153,255)">Bargainburg</h1>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    {{#link-to 'categories' tag='li'}}
+                                        <a href='#' {{bindAttr href="view.href"}}>
+                                            <span class="glyphicon glyphicon-tasks"></span> Categories
+                                        </a>
+                                    {{/link-to}}
+
+                                    {{#link-to 'businesses' tag='li'}}
+                                        <a href='#' {{bindAttr href="view.href"}}>
+                                            <span class="glyphicon glyphicon-briefcase"></span> Businesses
+                                        </a>
+                                    {{/link-to}}
+
+                                    {{#link-to 'search.index' tag='li'}}
+                                        <a href='#' {{bindAttr href="view.href"}}>
+                                            <span class="glyphicon glyphicon-search"></span> Search
+                                        </a>
+                                    {{/link-to}}
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+                <p></p>
+                {{outlet}}
+            </div>
+        </div>
+        <p></p>
+        <div id="footer">
+            <div class="container" style="background-color:rgb(40,40,40)">
+                <p class="text-muted credit">Created by the Students of VT CS 4704</p>
+            </div>
+        </div>
+
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='search/_search-bar'>
+            <div class="input-group">
+                {{input type='text' class='form-control'
+                placeholder="Search for a business, service, or coupon!"
+                value=query}}
+                <span {{action 'search' query}} class="input-group-addon btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+            </div>
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='search/index'>
+            {{partial 'search/search-bar'}}
+        </script>
+
+
+        <script type='text/x-handlebars' data-template-name='search/query'>
+            {{partial 'search/search-bar'}}
+            <br>
+            <div>
+                <div class="list-group">
+                    {{#each}}
+                    {{#link-to 'business' slug class='list-group-item'}}
+                        <h5 class="list-group-item-heading">{{name}}</h5>
+                        <p class="list-group-item-text">{{description}}</p>
+                    {{/link-to}}
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='categories'>
+            {{#each}}
+            <button type="button" class="btn btn-block btn-primary category-btn">
+                <h5>{{category}}</h5>
+            </button>
+            <div style='display:none'>
+                {{#each businesses}}
+                    {{#link-to 'business' slug class='list-group-item'}}
+                        <h5 class="list-group-item-heading">{{name}}</h5>
+                    {{/link-to}}
+                {{/each}}
+            </div>
+            {{/each}}
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='businesses'>
+            <a class="list-group-item active">
+                <h4 class="list-group-item-heading" style="text-align:center">Look up your favorite places here!</h4>
+            </a>
+            {{#each}}
+                {{#link-to 'business' slug class='list-group-item'}}
+                    <h4 class="list-group-item-heading">{{name}}</h4>
+                {{/link-to}}
+            {{/each}}
+        </script>
+
+        <script type='text/x-handlebars' data-template-name='business'>
+            <div class='list-group-item active'>
+                {{#link-to 'business' slug }}
+                    <h4 class="list-group-item-heading"
+                        style="text-align:center;color:white">{{name}}</h4> 
+                {{/link-to}}
+                <h5>Phone: ###-###-####</h5> 
+                <h5>Email: company@site.com</h5> 
+                <h5>Hours of Operation: 9am-9pm</h5>
+            </div>
+            {{#each coupons}}
+                <a href="javascript:void(0);" class="list-group-item coupon" {{bind-attr
+                data-name=name}}>
+                  <h5 class="list-group-item-heading">{{name}}</h5>
+                </a>
+            {{/each}}
+        </script>
+
+
+
+        <!-- Bootstrap core JavaScript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script src="lib/jquery-2.0.3.min.js"></script>
+        <script src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+
+        <!-- EmberJS -->
+        <script type='text/javascript' src='lib/handlebars-1.0.0.js'></script>
+        <script type='text/javascript' src='lib/ember.js'></script>
+
+        <!-- App -->
+        <!-- App -->
+        <script type='text/javascript' src='./data.js'></script>
+        <script type='text/javascript' src='./API.js'></script>
+        <script type='text/javascript' src='./app.js'></script>
+        <script type='text/javascript' src='./ui.js'></script>
+
+    </body>
+</html>
+
