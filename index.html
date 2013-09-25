@@ -105,11 +105,11 @@
         <script type='text/x-handlebars' data-template-name='categories'>
             {{#each}}
             <button type="button" class="btn btn-block btn-primary category-btn">
-                <h5>{{category}}</h5>
+                <h5>{{name}}</h5>
             </button>
             <div style='display:none'>
-                {{#each businesses}}
-                    {{#link-to 'business' slug class='list-group-item'}}
+                {{#each merchants}}
+                    {{#link-to 'business' id class='list-group-item'}}
                         <h5 class="list-group-item-heading">{{name}}</h5>
                     {{/link-to}}
                 {{/each}}
@@ -122,7 +122,7 @@
                 <h4 class="list-group-item-heading" style="text-align:center">Look up your favorite places here!</h4>
             </a>
             {{#each}}
-                {{#link-to 'business' slug class='list-group-item'}}
+                {{#link-to 'business' id class='list-group-item'}}
                     <h4 class="list-group-item-heading">{{name}}</h4>
                 {{/link-to}}
             {{/each}}
@@ -130,13 +130,14 @@
 
         <script type='text/x-handlebars' data-template-name='business'>
             <div class='list-group-item active'>
-                {{#link-to 'business' slug }}
+                {{#link-to 'business' id }}
                     <h4 class="list-group-item-heading"
                         style="text-align:center;color:white">{{name}}</h4> 
                 {{/link-to}}
-                <h5>Phone: ###-###-####</h5> 
-                <h5>Email: company@site.com</h5> 
-                <h5>Hours of Operation: 9am-9pm</h5>
+                <h5>Phone: {{phone}}</h5>
+                <h5>Email: {{email}}</h5>
+                <h5>Hours of Operation: {{hours}}</h5>
+                <h5>Price: {{price-glyphs price_range}}</h5>
             </div>
             {{#each coupons}}
                 <a href="javascript:void(0);" class="list-group-item coupon" {{bind-attr
@@ -161,8 +162,6 @@
 
         <!-- App -->
         <!-- App -->
-        <script type='text/javascript' src='./data.js'></script>
-        <script type='text/javascript' src='./API.js'></script>
         <script type='text/javascript' src='./app.js'></script>
         <script type='text/javascript' src='./ui.js'></script>
 

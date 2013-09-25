@@ -1,5 +1,13 @@
+var URL = "http://localhost:3000/v1";
+
 App = Ember.Application.create({});
 
+Ember.Handlebars.helper('price-glyphs', function(value, options) {
+    var s = "";
+    for (var i = 0; i < value; ++i)
+        s += "$";
+    return s;
+});
 
 App.Router.map(function() {
     this.resource('search', function() {
@@ -7,7 +15,7 @@ App.Router.map(function() {
     });
     this.resource('categories');
     this.resource('businesses');
-    this.resource('business', {path: '/business/:business_slug'});
+    this.resource('business', {path: '/business/:id'});
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -21,7 +29,7 @@ App.SearchIndexRoute = Ember.Route.extend({controllerName : 'search.query'});
 
 App.SearchQueryRoute = Ember.Route.extend({
     model: function(params) {
-        return API.search(params.search_string);
+        alert('not implemented yet');
     }
 });
 
@@ -36,20 +44,25 @@ App.SearchQueryController = Ember.ArrayController.extend({
 
 App.CategoriesRoute = Ember.Route.extend({
     model: function(params) {
-        return API.categories();
+        return Ember.$.getJSON(URL + "/categories?expand_merchants=1&callback=?");
     }
 });
 
 App.BusinessesRoute = Ember.Route.extend({
     model: function(params) {
-        return API.businesses();
+        return Ember.$.getJSON(URL + "/merchants?callback=?");
     }
 });
 
 App.BusinessRoute = Ember.Route.extend({
     model: function(params) {
-        var obj = API.get_business(params.business_slug);
-        obj['coupons'] = API.get_coupons(params.business_slug);
-        return obj;
+        return Ember.$.getJSON(URL + "/merchants/"
+            + params.id + "?callback=?").then(function(b) {
+                return Ember.$.getJSON(URL + "/coupons?merchant_id="
+                    + b.id + "&callback=?").then(function(cs) {
+                        b['coupons'] = cs;
+                        return b;
+                });
+        });
     }
 });
