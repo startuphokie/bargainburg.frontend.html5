@@ -1,4 +1,4 @@
-var URL = "http://tylerkahn.org:3000/v1";
+var URL = "http://api.bargainburg.co/v1/";
 
 App = Ember.Application.create({});
 
