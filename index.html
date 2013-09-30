@@ -73,10 +73,10 @@
 
         <script type='text/x-handlebars' data-template-name='search/_search-bar'>
             <div class="input-group">
-                {{input type='text' class='form-control'
+                {{input type='text' id='search-bar' class='form-control'
                 placeholder="Search for a business, service, or coupon!"
                 value=query}}
-                <span {{action 'search' query}} class="input-group-addon btn btn-default" type="button">
+                <span {{action 'search' query}} id='search-button' class="input-group-addon btn btn-default" type="button">
                     <span class="glyphicon glyphicon-search"></span>
                 </span>
             </div>

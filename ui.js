@@ -6,4 +6,9 @@ $(document).ready(function() {
     $(document).on('click', '.coupon', function() {
         alert($(this).data('name'));
     });
+
+    $(document).on('keypress', '#search-bar', function(event) {
+        if (event.keyCode === 13)
+            $('#search-button').click();
+    });
 });
