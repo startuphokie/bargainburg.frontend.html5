@@ -37,7 +37,10 @@ App.SearchQueryController = Ember.ArrayController.extend({
     query: null,
     actions : {
         search : function(query) {
-            this.transitionToRoute('search.query', query);
+            if (query === null || query === '')
+                this.transitionToRoute('search.index');
+            else
+                this.transitionToRoute('search.query', query);
         }
     }
 });
