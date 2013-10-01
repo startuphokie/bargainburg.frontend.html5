@@ -138,6 +138,12 @@
                 <h5>Email: {{email}}</h5>
                 <h5>Hours of Operation: {{hours}}</h5>
                 <h5>Price: {{price-glyphs price_range}}</h5>
+                
+                <div id="description"><a href="#demo" class="list-group-item-heading" data-toggle="collapse">More Information...</a></div>
+                    <div id="demo" class="collapse">
+                        <h5>Description will go here!</h5>
+                </div>
+            
             </div>
             {{#each coupons}}
                 <a href="javascript:void(0);" class="list-group-item coupon" {{bind-attr
