@@ -139,9 +139,14 @@
                 <h5>Hours of Operation: {{hours}}</h5>
                 <h5>Price: {{price-glyphs price_range}}</h5>
                 
-                <div id="description"><a href="#demo" class="list-group-item-heading" data-toggle="collapse">More Information...</a></div>
-                    <div id="demo" class="collapse">
-                        <h5>Description will go here!</h5>
+                <div>
+                    <a href="javascript:void(0);"
+                    class="list-group-item-heading"
+                    style='text-decoration:underline' data-toggle="collapse"
+                        data-target='#description'>More Information...</a>
+                </div>
+                <div id="description" class="collapse">
+                    <h5>{{description}}</h5>
                 </div>
             
             </div>
