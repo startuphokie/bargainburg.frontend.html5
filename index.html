@@ -138,7 +138,7 @@
                 <h5>Email: {{email}}</h5>
                 <h5>Hours of Operation: {{hours}}</h5>
                 <h5>Price: {{price-glyphs price_range}}</h5>
-                
+
                 <div>
                     <a href="javascript:void(0);"
                     class="list-group-item-heading"
@@ -148,7 +148,7 @@
                 <div id="description" class="collapse">
                     <h5>{{description}}</h5>
                 </div>
-            
+
             </div>
             {{#each coupons}}
                 <a href="javascript:void(0);" class="list-group-item coupon" {{bind-attr
@@ -158,6 +158,14 @@
             {{/each}}
         </script>
 
+        <script type='text/x-handlebars' data-template-name='coupon'>
+            Name: {{name}}
+            Description: {{description}}
+            <!-- Look at
+                 http://api.bargainburg.co/v1/coupons?merchant_id=16
+                 for other properties
+             -->
+        </script>
 
 
         <!-- Bootstrap core JavaScript

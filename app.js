@@ -16,11 +16,18 @@ App.Router.map(function() {
     this.resource('categories');
     this.resource('businesses');
     this.resource('business', {path: '/business/:id'});
+    this.resource('coupon', {path: '/coupon/:id'});
 });
 
 App.IndexRoute = Ember.Route.extend({
     redirect: function() {
         this.transitionTo('categories');
+    }
+});
+
+App.CouponRoute = Ember.Route.extend({
+    model: function(params) {
+        return Ember.$.getJSON(URL + "/coupons/" + params.id + "/?callback=?");
     }
 });
 
