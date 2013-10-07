@@ -69,3 +69,5 @@ App.BusinessRoute = Ember.Route.extend({
         });
     }
 });
+
+App.LoadingRoute = Ember.Route.extend({});
