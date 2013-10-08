@@ -60,13 +60,7 @@ App.BusinessesRoute = Ember.Route.extend({
 App.BusinessRoute = Ember.Route.extend({
     model: function(params) {
         return Ember.$.getJSON(URL + "/merchants/"
-            + params.id + "?callback=?").then(function(b) {
-                return Ember.$.getJSON(URL + "/coupons?merchant_id="
-                    + b.id + "&callback=?").then(function(cs) {
-                        b['coupons'] = cs;
-                        return b;
-                });
-        });
+            + params.id + "?expand_coupons=1&callback=?");
     }
 });
 
