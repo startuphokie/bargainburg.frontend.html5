@@ -9,6 +9,13 @@ Ember.Handlebars.helper('price-glyphs', function(value, options) {
     return s;
 });
 
+Ember.Handlebars.registerHelper('isBusiness', function (options) {
+    if (this.type === "merchant") {
+        return options.fn(this);
+    }
+    return options.inverse(this);
+});
+
 App.Router.map(function() {
     this.resource('search', function() {
         this.resource('search.query', {path: ':search_string'});
@@ -36,7 +43,7 @@ App.SearchIndexRoute = Ember.Route.extend({controllerName : 'search.query'});
 
 App.SearchQueryRoute = Ember.Route.extend({
     model: function(params) {
-        alert('not implemented yet');
+        return Ember.$.getJSON(URL + "/search?query=" + encodeURI(params.search_string) + "&callback=?");
     }
 });
 

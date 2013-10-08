@@ -93,10 +93,15 @@
             <div>
                 <div class="list-group">
                     {{#each}}
-                    {{#link-to 'business' slug class='list-group-item'}}
-                        <h5 class="list-group-item-heading">{{name}}</h5>
-                        <p class="list-group-item-text">{{description}}</p>
-                    {{/link-to}}
+                    {{#isBusiness}}
+                        {{#link-to 'business' id class='list-group-item'}}
+                            <h5 class="list-group-item-heading">{{name}}</h5>
+                        {{/link-to}}
+                    {{else}}
+                        {{#link-to 'coupon' id class='list-group-item'}}
+                            <h5 class="list-group-item-heading">{{name}}</h5>
+                        {{/link-to}}
+                    {{/isBusiness}}
                     {{/each}}
                 </div>
             </div>
