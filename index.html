@@ -109,10 +109,11 @@
 
         <script type='text/x-handlebars' data-template-name='categories'>
             {{#each}}
-            <button type="button" class="btn btn-block btn-primary category-btn">
+            <button {{action 'toggleCategory' id}}
+            "button" class="btn btn-block btn-primary category-btn">
                 <h5>{{name}}</h5>
             </button>
-            <div style='display:none'>
+            <div style="{{unbound open-cat id}}">
                 {{#each merchants}}
                     {{#link-to 'business' id class='list-group-item'}}
                         <h5 class="list-group-item-heading">{{name}}</h5>
