@@ -2,11 +2,19 @@ var URL = "http://api.bargainburg.co/v1/";
 
 App = Ember.Application.create({});
 
+State = {
+    openCategories: {}
+};
+
 Ember.Handlebars.helper('price-glyphs', function(value, options) {
     var s = "";
     for (var i = 0; i < value; ++i)
         s += "$";
     return s;
+});
+
+Ember.Handlebars.helper('open-cat', function(id, options) {
+    return State.openCategories[id] ? "display:block;" : "display:none;";
 });
 
 Ember.Handlebars.registerHelper('isBusiness', function (options) {
@@ -62,6 +70,14 @@ App.SearchQueryController = Ember.ArrayController.extend({
 App.CategoriesRoute = Ember.Route.extend({
     model: function(params) {
         return Ember.$.getJSON(URL + "/categories?expand_merchants=1&callback=?");
+    }
+});
+
+App.CategoriesController = Ember.ArrayController.extend({
+    actions : {
+        toggleCategory: function(id) {
+            State.openCategories[id] = !State.openCategories[id]
+        },
     }
 });
 
