@@ -11,4 +11,8 @@ $(document).ready(function() {
         if (event.keyCode === 13)
             $('#search-button').click();
     });
+
+    $(document).on('click', '.navbar-nav a', function() {
+        $('#navbar-toggle').click();
+    });
 });
