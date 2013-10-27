@@ -1,206 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="lib/bootstrap-3.0.0/assets/ico/favicon.png">
-        <title>Bargainburg</title>
-        <!-- Bootstrap core CSS -->
-        <link href="lib/bootstrap-3.0.0/dist/css/bootstrap.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="lib/sticky-footer.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="../../assets/js/html5shiv.js"></script>
-        <script src="../../assets/js/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <script type='text/x-handlebars'>
-        <!-- Wrap all page content here -->
-        <div id="wrap">
-            <!-- Begin page content -->
-            <div class="container">
-                <div class="navbar navbar-default">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <h1 style="color:rgb(64,153,255)">Bargainburg
-                            <button type="button" class="navbar-toggle"
-                            id="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            </button></h1>
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav">
-                                    {{#link-to 'categories' tag='li'}}
-                                        <a href='#' {{bindAttr href="view.href"}}>
-                                            <span class="glyphicon glyphicon-tasks"></span> Categories
-                                        </a>
-                                    {{/link-to}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>BargainBurg | Coupons &amp; Discounts for Blacksburg</title>
 
-                                    {{#link-to 'businesses' tag='li'}}
-                                        <a href='#' {{bindAttr href="view.href"}}>
-                                            <span class="glyphicon glyphicon-briefcase"></span> Businesses
-                                        </a>
-                                    {{/link-to}}
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome-ie7.min.css" />
 
-                                    {{#link-to 'search.index' tag='li'}}
-                                        <a href='#' {{bindAttr href="view.href"}}>
-                                            <span class="glyphicon glyphicon-search"></span> Search
-                                        </a>
-                                    {{/link-to}}
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/logo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-                                </ul>
+
+</head>
+<body>
+
+
+    <div class="loading">
+
+        <div class="sky rock"></div>
+        <div class="sky ocean rock"></div>
+
+        <div class="animation-wrapper">
+
+            <div class="logo-wrapper rock slide">
+                <div class="logo-outline">
+                    <div class="logo-slides">
+
+                        <div class="logo-slide logo-slide-money">
+                            <div class="logo-slide-inner">
+                                <i class="icon-money"></i>
+                            </div>
+                        </div><div class="logo-slide logo-slide-bargainburg">
+                            <div class="logo-slide-inner">
+                                BB
+                            </div>
+                        </div><div class="logo-slide logo-slide-local">
+                            <div class="logo-slide-inner">
+                                <i class="icon-map-marker"></i>
                             </div>
                         </div>
-                        <!--/.nav-collapse -->
+
                     </div>
                 </div>
-                <p></p>
+                <p>
+                    <i class="icon-spinner icon-spin icon-large"></i>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type='text/x-handlebars'>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <div class="logo-wrapper">
+                        <div class="logo-outline">
+                            <div class="logo-slides">
+
+                                <div class="logo-slide logo-slide-money">
+                                    <div class="logo-slide-inner">
+                                        <i class="icon-money"></i>
+                                    </div>
+                                </div><div class="logo-slide logo-slide-bargainburg">
+                                    <div class="logo-slide-inner">
+                                        BB
+                                    </div>
+                                </div><div class="logo-slide logo-slide-local">
+                                    <div class="logo-slide-inner">
+                                        <i class="icon-map-marker"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="menu">
+                <ul class="nav navbar-nav">
+                    {{#link-to 'categories' tag='li'}}
+                        <a href='#' {{bindAttr href="view.href"}}>
+                            <i class="icon-tasks"></i> Categories
+                        </a>
+                    {{/link-to}}
+
+                    {{#link-to 'businesses' tag='li'}}
+                        <a href='#' {{bindAttr href="view.href"}}>
+                            <i class="icon-briefcase"></i> Businesses
+                        </a>
+                    {{/link-to}}
+
+                    {{#link-to 'search.index' tag='li'}}
+                        <a href='#' {{bindAttr href="view.href"}}>
+                            <i class="icon-search"></i> Search
+                        </a>
+                    {{/link-to}}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="content-wrapper">
+            <div class="container"> 
                 {{outlet}}
             </div>
         </div>
-        <p></p>
-        <div id="footer">
-            <div class="container" style="background-color:rgb(40,40,40)">
-                <p class="text-muted credit">Created by the Students of VT CS 4704</p>
-            </div>
-        </div>
-
-        </script>
-
-        <script type='text/x-handlebars' data-template-name='search/_search-bar'>
-            <div class="input-group">
-                {{input type='text' id='search-bar' class='form-control'
-                placeholder="Search for a business, service, or coupon!"
-                value=query}}
-                <span {{action 'search' query}} id='search-button' class="input-group-addon btn btn-default" type="button">
-                    <span class="glyphicon glyphicon-search"></span>
-                </span>
-            </div>
-        </script>
-
-        <script type='text/x-handlebars' data-template-name='search/index'>
-            {{partial 'search/search-bar'}}
-        </script>
-
-
-        <script type='text/x-handlebars' data-template-name='search/query'>
-            {{partial 'search/search-bar'}}
-            <br>
-            <div>
-                <div class="list-group">
-                    {{#each}}
-                    {{#isBusiness}}
-                        {{#link-to 'business' id class='list-group-item'}}
-                            <h5 class="list-group-item-heading">{{name}}</h5>
-                        {{/link-to}}
-                    {{else}}
-                        {{#link-to 'coupon' id class='list-group-item'}}
-                            <h5 class="list-group-item-heading">{{name}}</h5>
-                        {{/link-to}}
-                    {{/isBusiness}}
-                    {{/each}}
+        <!--
+        Hidden Right Now Because of Ember Height Issue
+        <footer>
+            <div class="container">
+                <div class="rights">
+                    All Rights Reserved <strong>BargainBurg, LLC</strong>
                 </div>
             </div>
-        </script>
+        </footer>
+        -->
+    </script>
 
-        <script type='text/x-handlebars' data-template-name='categories'>
-            {{#each}}
-            <button {{action 'toggleCategory' id}}
-            "button" class="btn btn-block btn-primary category-btn">
-                <h5>{{name}}</h5>
-            </button>
-            <div style="{{unbound open-cat id}}">
-                {{#each merchants}}
+    <script type='text/x-handlebars' data-template-name='search/_search-bar'>
+        <div class="input-group">
+            {{input type='text' id='search-bar' class='form-control'
+            placeholder="Search for a business, service, or coupon!"
+            value=query}}
+            <span {{action 'search' query}} id='search-button' class="input-group-addon btn btn-default" type="button">
+                <i class="icon-search"></i></span>
+            </span>
+        </div>
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='search/index'>
+        {{partial 'search/search-bar'}}
+    </script>
+
+
+    <script type='text/x-handlebars' data-template-name='search/query'>
+        {{partial 'search/search-bar'}}
+        <br>
+        <div>
+            <div class="list-group">
+                {{#each}}
+                {{#isBusiness}}
                     {{#link-to 'business' id class='list-group-item'}}
                         <h5 class="list-group-item-heading">{{name}}</h5>
+                    {{/link-to}}
+                {{else}}
+                    {{#link-to 'coupon' id class='list-group-item'}}
+                        <h5 class="list-group-item-heading">{{name}}</h5>
+                    {{/link-to}}
+                {{/isBusiness}}
+                {{/each}}
+            </div>
+        </div>
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='categories'>
+        <div class="categories">
+            {{#each}}
+            <button type="button" class="btn btn-block btn-primary category-btn">
+                <h5><i class="icon-tasks"></i>&nbsp;&nbsp;&nbsp;{{name}}</h5>
+            </button>
+            <div style='display:none'>
+                {{#each merchants}}
+                    {{#link-to 'business' id class='list-group-item'}}
+                        <h5 class="list-group-item-heading">
+                            <i class="icon-briefcase"></i>&nbsp;&nbsp;&nbsp;{{name}}
+                        </h5>
                     {{/link-to}}
                 {{/each}}
             </div>
             {{/each}}
-        </script>
+        </div>
+    </script>
 
-        <script type='text/x-handlebars' data-template-name='businesses'>
-            <a class="list-group-item active">
-                <h4 class="list-group-item-heading" style="text-align:center">Look up your favorite places here!</h4>
-            </a>
-            {{#each}}
-                {{#link-to 'business' id class='list-group-item'}}
-                    <h4 class="list-group-item-heading">{{name}}</h4>
-                {{/link-to}}
-            {{/each}}
-        </script>
+    <script type='text/x-handlebars' data-template-name='businesses'>
+        <a class="list-group-item active">
+            <h4 class="list-group-item-heading">Businesses</h4>
+        </a>
+        {{#each}}
+            {{#link-to 'business' id class='list-group-item'}}
+                <h4 class="list-group-item-heading">
+                <i class="icon-briefcase"></i>&nbsp;&nbsp;&nbsp;{{name}}
+                </h4>
+            {{/link-to}}
+        {{/each}}
+    </script>
 
-        <script type='text/x-handlebars' data-template-name='business'>
-            <div class='list-group-item active'>
-                {{#link-to 'business' id }}
-                    <h4 class="list-group-item-heading"
-                        style="text-align:center;color:white">{{name}}</h4> 
-                {{/link-to}}
-                <h5>Phone: {{phone}}</h5>
-                <h5>Email: {{email}}</h5>
-                <h5>Hours of Operation: {{hours}}</h5>
-                <h5>Price: {{price-glyphs price_range}}</h5>
+    <script type='text/x-handlebars' data-template-name='business'>
+        <div class='list-group-item active'>
+            {{#link-to 'business' id }}
+                <h3 class="list-group-item-heading">{{name}}</h3> 
+            {{/link-to}}
 
-                <div>
-                    <a href="javascript:void(0);"
-                    class="list-group-item-heading"
-                    style='text-decoration:underline' data-toggle="collapse"
-                        data-target='#description'>More Information...</a>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <table>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{{phone}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Hours:</td>
+                            <td>{{hours}}</td>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <td>{{price-glyphs price_range}}</td>
+                        </tr>
+                    </table>
                 </div>
-                <div id="description" class="collapse">
-                    <h5>{{description}}</h5>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <p>
+                        <a href="javascript:void(0);" class="btn btn-danger" data-toggle="collapse" data-target='#description'>
+                            <i class="icon-info-sign"></i> More Information
+                        </a>
+                    </p>
+                    <p id="description" class="collapse">
+                        {{description}}
+                    </p>
                 </div>
-
             </div>
-            {{#each coupons}}
-                <a href="javascript:void(0);" class="list-group-item coupon" {{bind-attr
-                data-name=name}}>
-                  <h5 class="list-group-item-heading">{{name}}</h5>
-                </a>
-            {{/each}}
-        </script>
 
-        <script type='text/x-handlebars' data-template-name='coupon'>
-            Name: {{name}}
-            Description: {{description}}
-            <!-- Look at
-                 http://api.bargainburg.co/v1/coupons?merchant_id=16
-                 for other properties
-             -->
-        </script>
+        </div>
+        {{#each coupons}}
 
-       <script type='text/x-handlebars' data-template-name='loading'>
-            <div id='loading' style='position: absolute; top: 0; width: 100%; z-index: 1001;'>
-                <div class="progress progress-striped active" style='height:21px'>
-                    <div class="progress-bar"  role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50" style="width: 100%">
-                        <span class="sr-only"></span>
-                    </div>
-                </div>
-                <h2 style='width: 100px; margin-left: auto; margin-right: auto;
-                top: -41px; position: relative;font-size: 1.3em; color: white;'>Loading</h2>
-            </div>
-        </script>
+            {{#link-to 'coupon' id class='list-group-item coupon'}}
+              <h5 class="list-group-item-heading">
+              <i class="icon-money"></i>&nbsp;&nbsp;&nbsp;{{name}}
+              </h5>
+            {{/link-to}}
+        {{/each}}
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='coupon'>
+        Name: {{name}}
+        Description: {{description}}
+        <!-- Look at
+             http://api.bargainburg.co/v1/coupons?merchant_id=16
+             for other properties
+         -->
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='loading' id='loading-template'>
+    </script>
 
 
-        <!-- Bootstrap core JavaScript
-            ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/jquery-2.0.3.min.js"></script>
+    <script type='text/javascript'>
+        // Show loading animation while waiting for API
+        $('.loading').clone().appendTo('#loading-template');
+    </script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/handlebars-1.0.0.js"></script>
+    <script src="lib/ember.min.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
 
-        <script src="lib/jquery-2.0.3.min.js"></script>
-        <script src="lib/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
-
-        <!-- EmberJS -->
-        <script type='text/javascript' src='lib/handlebars-1.0.0.js'></script>
-        <script type='text/javascript' src='lib/ember.min.js'></script>
-
-        <!-- App -->
-        <script type='text/javascript' src='./app.min.js'></script>
-
-    </body>
+</body>
 </html>
-
